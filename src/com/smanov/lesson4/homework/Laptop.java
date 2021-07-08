@@ -1,4 +1,4 @@
-package com.smanov.homework;
+package com.smanov.lesson4.homework;
 
 public class Laptop extends Computer implements Printable{
     private String processorModel;
