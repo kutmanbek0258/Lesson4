@@ -1,81 +1,147 @@
 package com.smanov;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        /*int[] ints = new int[5];
+        /*ArrayList<String> strings = new ArrayList<>();
+        strings.add("Kutman");
+        strings.add("Ilya");
+        strings.add("Askar");
+        strings.add("Adam");
+        strings.add(3,"Albert");
 
-        ints[4] = 13;
+        ArrayList<Integer> ints = new ArrayList<>();
 
-        try{
-            System.out.println(ints[4]);
-            System.out.println(ints[5]);
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println(e.getMessage());
-        }finally {
-            System.out.println("Other");
+        ints.add(1);
+        ints.add(111);
+        ints.add(123);
+        ints.add(11);
+        ints.add(10);
+
+        for(String name:strings){
+            System.out.println(name);
+        }
+        String kutman = "Kutman";
+        if(strings.contains(kutman)){
+            strings.remove(kutman);
         }
 
-        System.out.println(getAreaOfSquare(5,5));
-        System.out.println(getAreaOfSquare(5,-5));
-
-        try {
-            getFactorial(-5);
-        } catch (FactorialException e) {
-            System.out.println(e.getMessage() + e.getNumber());
-        }
-
-        Scanner scanner = new Scanner(System.in);
-
-        User user = new User();
-
-        while (true){
-            try {
-                System.out.println("Input name");
-                user.setName(scanner.next());
-                System.out.println("Input age");
-                user.setAge(scanner.nextInt());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        for(String name:strings){
+            System.out.println(name);
         }*/
 
-        try {
-            System.out.println(9/0);
-        }catch (ArithmeticException e){
-            e.printStackTrace();
+        /*ArrayList<User> users = new ArrayList<>();
+
+        users.add(new User("Kutman", 27));
+        users.add(new User("Askar", 25));
+        users.add(new User("Sultan", 22));
+
+        users.sort(Comparator.comparing(User::getAge));
+
+        for (User user: users){
+            System.out.println(user.toString());
         }
 
+        Iterator<User> iterator = users.iterator();
 
-    }
-
-    public static int getFactorial(int num) throws FactorialException {
-        if(num <= 0) {
-            throw new FactorialException("Out of exc", num);
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
         }
-        int result = 1;
-        for(int i = 1; i <= num; i++){
-            result *= i;
-            System.out.println(result);
-        }
-        return result;
-    }
 
-    public static int getAreaOfSquare(int x, int y){
-        int area = 0;
-        if(x < 0 || y <0){
-            try {
-                throw new IllegalArgumentException("Значения не могут быть отрицательными");
-            }catch (IllegalArgumentException e){
-                System.out.println(e.getMessage());
+        //Collections.sort(strings);
+        //Collections.sort(ints);
+
+        //strings.sort(Comparator.comparing(String::length));
+
+        /*for(Integer integer:ints){
+            System.out.println(integer);
+        }*/
+
+        /*ArrayList<String> colors = new ArrayList<>();
+
+        colors.add("Red");
+        colors.add("Green");
+        colors.add("Black");
+
+        colors.ensureCapacity(6);
+
+        colors.add("White");
+        colors.add("Pink");
+
+        Collections.reverse(colors);
+
+        for(String color:colors){
+            System.out.println(color);
+        }
+
+        System.out.println("__________________");
+
+        Collections.shuffle(colors);
+
+        for(String color:colors){
+            System.out.println(color);
+        }
+         Map<String, User> userMap = new HashMap<>();
+
+         userMap.put("kelly", new User("Kelly", 17));*/
+
+        ArrayList<String> listA = new ArrayList<>();
+        ArrayList<String> listB = new ArrayList<>();
+        ArrayList<String> listC = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        boolean isEndA = false;
+        int aI = 0;
+        while (!isEndA){
+            String element = scanner.nextLine();
+            listA.add(element);
+            if(aI==4){
+                isEndA = true;
             }
-
-        }else {
-            area = x * y;
+            aI++;
         }
-        return area;
+
+        boolean isEndB = false;
+        int bI = 0;
+        while (!isEndB){
+            String element = scanner.nextLine();
+            listB.add(element);
+            if(bI==4){
+                isEndB = true;
+            }
+            bI++;
+        }
+
+        boolean isEnd = false;
+        int f = 0;
+
+        int a = 0;
+        int b = 4;
+        boolean ab = true;
+        while (!isEnd){
+            f++;
+            if(f>=10){
+                isEnd = true;
+            }
+            if(ab){
+                listC.add(listA.get(a));
+                a++;
+                ab = false;
+            }else {
+                listC.add(listB.get(b));
+                b--;
+                ab = true;
+            }
+        }
+
+        System.out.println(listC);
+
+        listC.sort(Comparator.comparing(String::length));
+
+        System.out.println(listC);
+
     }
 }

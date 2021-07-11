@@ -1,4 +1,4 @@
-package com.smanov;
+package com.smanov.lesson4;
 
 public class User {
     private String name;
