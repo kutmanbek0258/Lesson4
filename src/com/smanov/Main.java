@@ -6,6 +6,61 @@ public class Main {
 
     public static void main(String[] args) {
 
+        ArrayList<String> listA = new ArrayList<>();
+        ArrayList<String> listB = new ArrayList<>();
+        ArrayList<String> listC = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        boolean isEndA = false;
+        int aI = 0;
+        while (!isEndA){
+            String element = scanner.nextLine();
+            listA.add(element);
+            if(aI==4){
+                isEndA = true;
+            }
+            aI++;
+        }
+
+        boolean isEndB = false;
+        int bI = 0;
+        while (!isEndB){
+            String element = scanner.nextLine();
+            listB.add(element);
+            if(bI==4){
+                isEndB = true;
+            }
+            bI++;
+        }
+
+        boolean isEnd = false;
+        int f = 0;
+
+        int a = 0;
+        int b = 4;
+        boolean ab = true;
+        while (!isEnd){
+            f++;
+            if(f>=10){
+                isEnd = true;
+            }
+            if(ab){
+                listC.add(listA.get(a));
+                a++;
+                ab = false;
+            }else {
+                listC.add(listB.get(b));
+                b--;
+                ab = true;
+            }
+        }
+
+        System.out.println(listC);
+
+        listC.sort(Comparator.comparing(String::length));
+
+        System.out.println(listC);
+
         /*ArrayList<String> strings = new ArrayList<>();
         strings.add("Kutman");
         strings.add("Ilya");
@@ -87,61 +142,6 @@ public class Main {
          Map<String, User> userMap = new HashMap<>();
 
          userMap.put("kelly", new User("Kelly", 17));*/
-
-        ArrayList<String> listA = new ArrayList<>();
-        ArrayList<String> listB = new ArrayList<>();
-        ArrayList<String> listC = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-
-        boolean isEndA = false;
-        int aI = 0;
-        while (!isEndA){
-            String element = scanner.nextLine();
-            listA.add(element);
-            if(aI==4){
-                isEndA = true;
-            }
-            aI++;
-        }
-
-        boolean isEndB = false;
-        int bI = 0;
-        while (!isEndB){
-            String element = scanner.nextLine();
-            listB.add(element);
-            if(bI==4){
-                isEndB = true;
-            }
-            bI++;
-        }
-
-        boolean isEnd = false;
-        int f = 0;
-
-        int a = 0;
-        int b = 4;
-        boolean ab = true;
-        while (!isEnd){
-            f++;
-            if(f>=10){
-                isEnd = true;
-            }
-            if(ab){
-                listC.add(listA.get(a));
-                a++;
-                ab = false;
-            }else {
-                listC.add(listB.get(b));
-                b--;
-                ab = true;
-            }
-        }
-
-        System.out.println(listC);
-
-        listC.sort(Comparator.comparing(String::length));
-
-        System.out.println(listC);
 
     }
 }
